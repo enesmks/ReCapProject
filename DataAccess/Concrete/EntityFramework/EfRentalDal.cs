@@ -2,7 +2,7 @@
 using DataAccess.Abstract;
 using Entities.Concrete;
 
-namespace DataAccess.Concrete
+namespace DataAccess.EntityFramework.Concrete
 {
     public class EfRentalDal : EfEntityRepositoryBase<Rental,ReCapContext>,IRentalDal
     {

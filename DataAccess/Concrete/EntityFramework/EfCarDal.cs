@@ -5,7 +5,7 @@ using Entities.DTOs;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace DataAccess.Concrete
+namespace DataAccess.EntityFramework.Concrete
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, ReCapContext>, ICarDal
     {

@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WepAPI", "WepAPI\WepAPI.csproj", "{96722CA8-BC35-46B2-9788-9954C3D0E8DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{49E98061-799A-4950-9031-095688BE768C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{49E98061-799A-4950-9031-095688BE768C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{628489C7-3890-459D-81EB-C47E00E50B1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{628489C7-3890-459D-81EB-C47E00E50B1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{831E530A-A4C1-438B-8BDE-9EA6D4E833B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{628489C7-3890-459D-81EB-C47E00E50B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{628489C7-3890-459D-81EB-C47E00E50B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{628489C7-3890-459D-81EB-C47E00E50B1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{831E530A-A4C1-438B-8BDE-9EA6D4E833B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{831E530A-A4C1-438B-8BDE-9EA6D4E833B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{831E530A-A4C1-438B-8BDE-9EA6D4E833B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{831E530A-A4C1-438B-8BDE-9EA6D4E833B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

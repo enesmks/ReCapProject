@@ -4,7 +4,7 @@ using DataAccess.Abstract;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace DataAccess.Concrete
+namespace DataAccess.EntityFramework.Concrete
 {
     public class EfUserDal : EfEntityRepositoryBase<User, ReCapContext>, IUserDal
     {
