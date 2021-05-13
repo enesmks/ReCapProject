@@ -39,11 +39,11 @@ namespace Core.Utilities.Security.JWT
         private JwtSecurityToken CreateJwtSecurityToken(User user,List<OperationClaim> operationClaims,TokenOptions tokenOptions,
             SigningCredentials signingCredentials)
         {
-            var jwt = new JwtSecurityToken(
-                audience: tokenOptions.Audience,
+            var jwt = new JwtSecurityToken(                
                 issuer: tokenOptions.Issuer,
+                audience: tokenOptions.Audience,
                 expires: _accessTokenExpiration,
-                notBefore: DateTime.Now,
+                notBefore: DateTime.Now,                
                 claims: SetClaim(user, operationClaims),
                 signingCredentials: signingCredentials
                 );
@@ -53,7 +53,7 @@ namespace Core.Utilities.Security.JWT
         {
             var claims = new List<Claim>();
             claims.AddName($"{user.FirstName}{user.LastName}");
-            claims.AddNameIdentifier(user.Id.ToString());
+            claims.AddNameIdentifier(user.UserId.ToString());
             claims.AddRole(operationClaims.Select(x => x.Name).ToArray());
             claims.AddEmail(user.Email);
             return claims;

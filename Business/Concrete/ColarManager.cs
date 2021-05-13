@@ -12,8 +12,6 @@ namespace Business.Concrete
     public class ColarManager : IColarService
     {
         IColarDal _colarDal;
-        private string ColarDeleted;
-        private string ColarUpdated;
 
         public ColarManager(IColarDal colarDal)
         {
@@ -30,7 +28,7 @@ namespace Business.Concrete
         public IResult Delete(Colar colar)
         {
             _colarDal.Delete(colar);
-            return new SuccessResult(ColarDeleted);
+            return new SuccessResult(Messages.ColarDeleted);
         }
 
         public IDataResult<List<Colar>> GetAll()
@@ -47,7 +45,7 @@ namespace Business.Concrete
         public IResult Update(Colar colar)
         {
             _colarDal.Update(colar);
-            return new SuccessResult(ColarUpdated);
+            return new SuccessResult(Messages.ColarUpdated);
         }
     }
 }
