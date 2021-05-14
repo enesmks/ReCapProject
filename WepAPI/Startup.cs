@@ -36,6 +36,8 @@ namespace WepAPI
 
             services.AddControllers();
 
+            services.AddCors();
+
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -68,6 +70,8 @@ namespace WepAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(builder => builder.WithOrigins("https://localhost:4200").AllowAnyHeader());
 
             app.UseStaticFiles();
 
