@@ -39,7 +39,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll());
         }
-        [LogAspect(typeof(FileLogger))]
+        //[LogAspect(typeof(FileLogger))]
         public IDataResult<Car> GetById(int carId)
         {
             return new SuccessDataResult<Car>(_carDal.Get(x => x.CarId == carId));

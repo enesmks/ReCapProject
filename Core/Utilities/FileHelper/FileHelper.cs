@@ -1,4 +1,5 @@
-﻿using Core.Utilities.Results;
+﻿using Core.Utilities.Messages;
+using Core.Utilities.Results;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,9 @@ namespace Core.Utilities.FileHelper
             var result = newPath(file);
             var sourcePath = Path.GetTempFileName();
 
-            if (file.Length >0)
+            if (file.Length > 0)
             {
-                using (var stream = new FileStream(sourcePath,FileMode.Create))
+                using (var stream = new FileStream(sourcePath, FileMode.Create))
                 {
                     file.CopyTo(stream);
                 }
@@ -36,15 +37,15 @@ namespace Core.Utilities.FileHelper
             }
             return new SuccessResult();
         }
-        public static string Update(string sourcePath,IFormFile file)
+        public static string Update(string sourcePath, IFormFile file)
         {
             var result = newPath(file);
-            if (sourcePath.Length>0)
+            if (sourcePath.Length > 0)
             {
-                using (var stream = new FileStream(result,FileMode.Create))
+                using (var stream = new FileStream(result, FileMode.Create))
                 {
                     file.CopyTo(stream);
-                }                
+                }
             }
             File.Delete(sourcePath);
             return result;

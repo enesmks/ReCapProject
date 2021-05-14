@@ -20,7 +20,7 @@ namespace WepAPI.Controllers
             _carImageService = carImageService;
         }
         [HttpPost("add")]
-        public IActionResult Add([FromForm(Name =("Image"))] IFormFile file,[FromForm] CarImage carImage)
+        public IActionResult Add([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
         {
             var result = _carImageService.Add(file, carImage);
             if (result.Success)
@@ -30,7 +30,7 @@ namespace WepAPI.Controllers
             return BadRequest(result.Message);
         }
         [HttpPut("update")]
-        public IActionResult Update([FromForm(Name =("Image"))] IFormFile file,[FromForm] CarImage carImage)
+        public IActionResult Update([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
         {
             var result = _carImageService.Update(file, carImage);
             if (result.Success)

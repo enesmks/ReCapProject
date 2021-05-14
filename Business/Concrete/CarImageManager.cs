@@ -8,6 +8,7 @@ using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -58,7 +59,7 @@ namespace Business.Concrete
 
         public IResult Update(IFormFile file, CarImage carImage)
         {
-            carImage.ImagePath = FileHelper.Update(_carImageDal.Get(x => x.ImageId == carImage.ImageId).ImagePath,file);
+            carImage.ImagePath = FileHelper.Update(_carImageDal.Get(x => x.ImageId == carImage.ImageId).ImagePath, file);
             carImage.Date = DateTime.Now;
             _carImageDal.Update(carImage);
             return new SuccessResult();
@@ -66,7 +67,7 @@ namespace Business.Concrete
         private IResult CheckImageCount(int carId)
         {
             var result = _carImageDal.GetAll(x => x.CarId == carId && x.ImageId == carId).Count;
-            if (result>5)
+            if (result > 5)
             {
                 return new ErrorResult(Messages.CheckImageCount);
             }
