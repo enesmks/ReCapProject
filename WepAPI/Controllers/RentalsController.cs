@@ -28,7 +28,7 @@ namespace WepAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
@@ -38,7 +38,7 @@ namespace WepAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
         [HttpPost("add")]
         public IActionResult Add(Rental rental)
@@ -48,7 +48,7 @@ namespace WepAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
         [HttpDelete("delete")]
         public IActionResult Delete(Rental rental)
@@ -58,7 +58,7 @@ namespace WepAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
         [HttpPut("update")]
         public IActionResult Update(Rental rental)
@@ -68,7 +68,7 @@ namespace WepAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
     }
 }

@@ -44,14 +44,5 @@ namespace Business.Constants
         public static string MinumumColarNameLength= "Renk ismi minimum 2 karakter olmalıdır";
         public static string MaximumColarNameLength= "Renk ismi maksimum 30 karakter olabilir";
         public static string ColarNameCanNotBeEmpty="Renk ismi boş bırakılamaz";
-        internal static string CheckImageCount;
-        internal static string CarImageUpdated;
-        internal static string IdError;
-        internal static CarImage CarImageNotFound;
-        internal static string CarImageNotDeleted;
-        internal static string CarImageDeleted;
-        internal static string CarImageEnough;
-        internal static Car CarNotFound;
-        internal static string CarImageAdded;
     }
 }

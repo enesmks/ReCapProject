@@ -67,11 +67,11 @@ namespace WepAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseCors(builder => builder.WithOrigins("https://localhost:4200").AllowAnyHeader());
 
             app.UseStaticFiles();
 

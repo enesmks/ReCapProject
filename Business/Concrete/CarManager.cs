@@ -7,6 +7,7 @@ using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -43,6 +44,11 @@ namespace Business.Concrete
         public IDataResult<Car> GetById(int carId)
         {
             return new SuccessDataResult<Car>(_carDal.Get(x => x.CarId == carId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDeails()
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
 
         [ValidationAspect(typeof(CarValidator))]

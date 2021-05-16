@@ -27,7 +27,7 @@ namespace WepAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
@@ -37,7 +37,7 @@ namespace WepAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
         [HttpPost("add")]
         public IActionResult Add(Car car)
@@ -47,7 +47,7 @@ namespace WepAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
         [HttpDelete("delete")]
         public IActionResult Delete(Car car)
@@ -57,7 +57,7 @@ namespace WepAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
         [HttpPut("update")]
         public IActionResult Update(Car car)
@@ -67,7 +67,17 @@ namespace WepAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
+        }
+        [HttpGet("cardetails")]
+        public IActionResult GetCarDetails()
+        {
+            var result = _carService.GetCarDeails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }

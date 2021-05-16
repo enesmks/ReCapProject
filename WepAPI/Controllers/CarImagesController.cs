@@ -37,17 +37,7 @@ namespace WepAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
-        }
-        [HttpGet("getbyid")]
-        public IActionResult GetById(int carImageId)
-        {
-            var result = _carImageService.GetById(carImageId);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
         [HttpGet("getall")]
         public IActionResult GetAll()
@@ -57,17 +47,17 @@ namespace WepAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
         [HttpGet("getImagebyCarId")]
         public IActionResult GetImageById(int imageId)
         {
-            var result = _carImageService.GetImageByCarId(imageId);
+            var result = _carImageService.GetImagesByCarId(imageId);
             if (result.Success)
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
     }
 }

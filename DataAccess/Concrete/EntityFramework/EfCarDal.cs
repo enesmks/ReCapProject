@@ -18,6 +18,8 @@ namespace DataAccess.EntityFramework.Concrete
                              on car.BrandId equals brand.BrandId
                              join colar in context.Colars
                              on car.ColarId equals colar.ColarId
+                             join carImage in context.CarImages
+                             on car.CarId equals carImage.CarId
                              select new CarDetailDto
                              {
                                  BrandId = brand.BrandId,
@@ -28,7 +30,9 @@ namespace DataAccess.EntityFramework.Concrete
                                  ColarName = colar.ColarName,
                                  DailyPrice = car.DailyPrice,
                                  Description = car.Description,
-                                 ModelYear = car.ModelYear
+                                 ModelYear = car.ModelYear,
+                                 Date = carImage.Date,
+                                 ImagePath = carImage.ImagePath
                              };
                 return result.ToList();
             }
