@@ -49,10 +49,10 @@ namespace WepAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("getImagebyCarId")]
-        public IActionResult GetImageById(int imageId)
+        [HttpGet("getimagesbycarid")]
+        public IActionResult GetImageById(int carId)
         {
-            var result = _carImageService.GetImagesByCarId(imageId);
+            var result = _carImageService.GetImagesByCarId(carId);
             if (result.Success)
             {
                 return Ok(result);

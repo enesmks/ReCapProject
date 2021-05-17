@@ -1,5 +1,8 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
+using Core.Abstracts.Autofac.Caching;
+using Core.Abstracts.Autofac.Transaction;
 using Core.Utilities.Business;
 using Core.Utilities.FileHelper;
 using Core.Utilities.Results;
@@ -21,6 +24,8 @@ namespace Business.Concrete
         {
             _carImageDal = imageDal;
         }
+        [SecuredOperation("admin,supplier")]
+        [CacheRemoveAspect("ICarImageService.Get")]
         public IResult Add(IFormFile file, CarImage carImage)
         {
             IResult result = BusinessRules.Run(CheckIfCarImageNull(carImage.CarId), CheckImageLimitExceeded(carImage.CarId));
@@ -39,9 +44,14 @@ namespace Business.Concrete
             _carImageDal.Add(carImage);
             return new SuccessResult();
         }
-
+        [SecuredOperation("admin,supplier")]
         public IResult Delete(CarImage carImage)
         {
+            IResult result = BusinessRules.Run(CarImageDelete(carImage));
+            if (result != null)
+            {
+                return result;
+            }
             var image = _carImageDal.Get(c => c.ImageId == carImage.ImageId);
             if (image == null)
             {
@@ -52,7 +62,7 @@ namespace Business.Concrete
             _carImageDal.Delete(carImage);
             return new SuccessResult();
         }
-
+        [CacheAspect]
         public IDataResult<CarImage> Get(int id)
         {
             return new SuccessDataResult<CarImage>(_carImageDal.Get(p => p.ImageId == id));
@@ -62,14 +72,14 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll().ToList());
         }
-
+        [CacheAspect]
         public IDataResult<List<CarImage>> GetImagesByCarId(int carId)
         {
 
-            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(ci => ci.CarId == carId));
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(ci => ci.CarId == carId).ToList());
         }
 
-
+        [SecuredOperation("admin,supplier")]
         public IResult Update(IFormFile file, CarImage carImage)
         {
             var isImage = _carImageDal.Get(c => c.ImageId == carImage.ImageId);
@@ -135,6 +145,14 @@ namespace Business.Concrete
             }
 
             return new SuccessResult();
+        }
+
+        [TransactionScopeAspect]
+        public IResult TransactionalOperation(CarImage carImage)
+        {
+            _carImageDal.Add(carImage);
+            _carImageDal.Update(carImage);
+            return new SuccessResult(Messages.CarImageUpdated);
         }
     }
 }

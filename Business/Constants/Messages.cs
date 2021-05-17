@@ -36,7 +36,6 @@ namespace Business.Constants
         public static string MinumumCustomerNameLength= "Müşteri ismi minimum 2 karakter olmalıdır";
         public static string MaximumCustomerNameLength= "Müşteri ismi maksimum 20 karakter olabilir";
         public static string CustomerNameCanNotBeEmpty="Müşteri ismi boş kalamaz";
-        public static string CanNotBeforeToday="Bugünden öncesine ait bir tarih girilemez";
         public static string RentDateCanNotBeEmpty="Kiralama tarihi boş kalamaz";
         public static string MinumumBrandNameLength= "Model ismi minimum 2 karakter olmalıdır";
         public static string MaximumBrandNameLength= "Model ismi maksimum 20 karakter olabilir";
@@ -44,5 +43,17 @@ namespace Business.Constants
         public static string MinumumColarNameLength= "Renk ismi minimum 2 karakter olmalıdır";
         public static string MaximumColarNameLength= "Renk ismi maksimum 30 karakter olabilir";
         public static string ColarNameCanNotBeEmpty="Renk ismi boş bırakılamaz";
+        public static string PasswordMustContainLowercase="Şifre büyük harf içermelidir";
+        public static string PasswordMustContainUppercase="Şifre küçük harf içermelidir";
+        public static string CarLimitExceded="10 dan fazla araç kiralanamaz";
+        public static string MaintenanceTime="Site bakımda";
+        public static string PasswordCanBeNotEmpty="Şifre boş bırakılamaz";
+        public static string MinimumPasswordLength="Şifre uzunluğu en az 8 karakter olmalıdır";
+        public static string MaximumPasswordLength= "Şifre uzunluğu en fazla 16 karakter olabilir";
+        public static string PasswordMustContainNumber="Şifre rakam içermelidir";
+        public static string InvalidEmail="Geçersiz eposta adresi";
+        public static string InvalidRentDate="Geçersiz tarih";
+        public static string CarImageUpdated="Araç resmi güncellendi";
+        public static string RentalUpdated="Kiralama tarihi güncellendi";
     }
 }

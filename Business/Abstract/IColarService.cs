@@ -11,5 +11,6 @@ namespace Business.Abstract
         IResult Add(Colar colar);
         IResult Update(Colar colar);
         IResult Delete(Colar colar);
+        IResult TransactionalOperation(Colar colar);
     }
 }

@@ -1,5 +1,8 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Abstracts.Autofac.Caching;
+using Core.Abstracts.Autofac.Validation;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
@@ -24,7 +27,6 @@ namespace Business.Concrete
             var accessToken = _tokenHelper.CreateAccessToken(user, claim);
             return new SuccessDataResult<AccessToken>(accessToken, Messages.TokenCreated);
         }
-
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
             var userToCheck = _userService.GetByMail(userForLoginDto.Email);
@@ -39,7 +41,7 @@ namespace Business.Concrete
             }
             return new SuccessDataResult<User>(userToCheck, Messages.LoginSuccessful);
         }
-
+        [ValidationAspect(typeof(RegisterValidator))]
         public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)
         {
             byte[] passwordHash, passwordSalt;

@@ -9,11 +9,12 @@ namespace Business.ValidationRules.FluentValidation
     {
         public RentalValidator()
         {
-            RuleFor(x => x.RentDate).Must(CanNotBeforeToday).WithMessage(Messages.CanNotBeforeToday);
             RuleFor(x => x.RentDate).NotEmpty().WithMessage(Messages.RentDateCanNotBeEmpty);
+            RuleFor(x => x.RentDate).Must(CanNotBeBeforeToday).WithMessage(Messages.InvalidRentDate);
+            RuleFor(x => x.ReturnDate).Must(CanNotBeBeforeToday).WithMessage(Messages.InvalidRentDate);
         }
 
-        private bool CanNotBeforeToday(DateTime arg)
+        private bool CanNotBeBeforeToday(DateTime arg)
         {
             if (arg.Date<DateTime.Now)
             {

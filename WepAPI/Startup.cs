@@ -66,6 +66,7 @@ namespace WepAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.ConfigureCustomeExceptionMiddleware();
 
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 

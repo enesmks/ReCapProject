@@ -13,5 +13,6 @@ namespace Business.Abstract
         IDataResult<CarImage> Get(int id);
         IDataResult<List<CarImage>> GetAll();
         IDataResult<List<CarImage>> GetImagesByCarId(int id);
+        IResult TransactionalOperation(CarImage carImage);
     }
 }
