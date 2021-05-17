@@ -44,11 +44,11 @@ namespace WepAPI.Controllers
                 return BadRequest(userToLogin.Message);
             }
             var result = _authService.CreateAccessToken(userToLogin.Data);
-            if (result.Success)
+            if (!result.Success)
             {
-                return Ok(result.Data);
+                return BadRequest(result.Message);
             }
-            return BadRequest(result.Message);
+            return Ok(result.Data);
         }
     }
 }

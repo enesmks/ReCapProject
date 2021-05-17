@@ -55,5 +55,13 @@ namespace Business.Constants
         public static string InvalidRentDate="Geçersiz tarih";
         public static string CarImageUpdated="Araç resmi güncellendi";
         public static string RentalUpdated="Kiralama tarihi güncellendi";
+        public static string CreditCardAdded="Kredi kartı eklendi";
+        public static string CreditCardDeleted="Kredi kartu silindi";
+        public static string CardNumberCanNotBeEmpty = "Kart numarsı boş olamaz";
+        public static string InvalidCartNumber="Geçersiz kart numarası";
+        public static string CvvCanNotBeEmpty="CVV boş bırakılamaz";
+        public static string InvalidCvv="Geçersiz CVV";
+        public static string CreditCardDateCanNotBeEmty="Kredi kartı tarihi boş kalamaz";
+        public static string CardTypeCanotBeEmpty="Kart tipi boş kalamaz";
     }
 }
