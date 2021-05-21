@@ -21,30 +21,6 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(x => x.Password).Matches(@"[a-z]+").WithMessage(Messages.PasswordMustContainLowercase);
             RuleFor(x => x.Password).Matches(@"[0-9]+").WithMessage(Messages.PasswordMustContainNumber);
 
-            RuleFor(x => x.Email).Must(EndWithHotmail).WithMessage(Messages.InvalidEmail);
-            RuleFor(x => x.Email).Must(EndWithGemail).WithMessage(Messages.InvalidEmail);
-            RuleFor(x => x.Email).Must(EndWithOutlook).WithMessage(Messages.InvalidEmail);
-            RuleFor(x => x.Email).Must(EndWithYahoo).WithMessage(Messages.InvalidEmail);
-        }
-
-        private bool EndWithYahoo(string arg)
-        {
-            return arg.EndsWith("@yahoo.com");
-        }
-
-        private bool EndWithOutlook(string arg)
-        {
-            return arg.EndsWith("@outlook.com");
-        }
-
-        private bool EndWithGemail(string arg)
-        {
-            return arg.EndsWith("@gmail.com");
-        }
-
-        private bool EndWithHotmail(string arg)
-        {
-            return arg.EndsWith("@hotmail.com");
         }
     }
 }

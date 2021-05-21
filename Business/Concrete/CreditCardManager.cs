@@ -22,13 +22,13 @@ namespace Business.Concrete
             _creditCardDal = creditCardDal;
         }
         [ValidationAspect(typeof(CreditCardValidator))]
-        [SecuredOperation("customer")]
+        //[SecuredOperation("customer,admin")]
         public IResult Add(CreditCard creditCard)
         {
             _creditCardDal.Add(creditCard);
             return new SuccessResult(Messages.CreditCardAdded);
         }
-        [SecuredOperation("customer")]
+        //[SecuredOperation("customer,admin")]
         public IResult Delete(CreditCard creditCard)
         {
             _creditCardDal.Delete(creditCard);
